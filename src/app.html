@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="text-scale" content="scale" />
+		<meta name="color-scheme" content="light dark" />
+		<script>
+			// apply the stored or system theme before paint to avoid a flash
+			(() => {
+				try {
+					const stored = localStorage.getItem('clario.theme');
+					const dark =
+						stored === 'dark' ||
+						(stored !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+					document.documentElement.classList.toggle('dark', dark);
+					document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+				} catch {
+					// storage can be unavailable, fall back to the default light theme
+				}
+			})();
+		</script>
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+		<title>Clario · Fatih Yılmaz</title>
+		<meta name="application-name" content="Clario" />
+		<meta name="author" content="Fatih Yılmaz" />
+		<meta name="publisher" content="Fatih Yılmaz" />
+		<meta
+			name="robots"
+			content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+		/>
+		<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+		<link rel="canonical" href="https://fatih.live/" />
+		<link rel="author" href="https://fatih.live/" />
+		<link rel="me" href="https://github.com/queaxtra" />
+		<link rel="alternate" hreflang="en" href="https://fatih.live/" />
+		<link rel="alternate" hreflang="x-default" href="https://fatih.live/" />
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+		<link rel="icon" type="image/png" href="https://cdn.fatih.live/logo.png" />
+		<link rel="apple-touch-icon" href="https://cdn.fatih.live/logo.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="apple-mobile-web-app-title" content="Clario" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<link rel="preconnect" href="https://cdn.fatih.live" crossorigin />
+		<link rel="preconnect" href="https://huggingface.co" crossorigin />
+		<link rel="preconnect" href="https://cdn-lfs.huggingface.co" crossorigin />
+		<link rel="dns-prefetch" href="https://cas-bridge.xethub.hf.co" />
+		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Clario" />
+		<meta property="og:title" content="Clario · Fatih Yılmaz" />
+		<meta
+			property="og:description"
+			content="Remove image backgrounds for free with Clario. AI cutouts run entirely in your browser, so your photos never leave your device. Batch ready, no signup."
+		/>
+		<meta property="og:url" content="https://fatih.live/" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:image" content="https://cdn.fatih.live/clario-banner.png" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="2400" />
+		<meta property="og:image:height" content="1260" />
+		<meta property="og:image:alt" content="Clario, free in-browser background remover" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Clario · Fatih Yılmaz" />
+		<meta
+			name="twitter:description"
+			content="Remove image backgrounds for free with Clario. AI cutouts run entirely in your browser, so your photos never leave your device. Batch ready, no signup."
+		/>
+		<meta name="twitter:image" content="https://cdn.fatih.live/clario-banner.png" />
+		<meta name="twitter:image:alt" content="Clario, free in-browser background remover" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "WebApplication",
+						"@id": "https://fatih.live/#app",
+						"name": "Clario",
+						"url": "https://fatih.live/",
+						"image": "https://cdn.fatih.live/clario-banner.png",
+						"description": "Free AI background remover that runs entirely in your browser. Remove image backgrounds, replace them with colors, gradients or another image, and download transparent PNGs.",
+						"applicationCategory": "MultimediaApplication",
+						"operatingSystem": "Any modern web browser",
+						"browserRequirements": "Requires JavaScript and WebAssembly",
+						"isAccessibleForFree": true,
+						"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+						"featureList": [
+							"Remove image backgrounds",
+							"Transparent PNG export",
+							"Batch processing with ZIP download",
+							"Runs offline in the browser",
+							"Background color, gradient and image",
+							"No signup or upload"
+						],
+						"codeRepository": "https://github.com/queaxtra/clario",
+						"author": { "@id": "https://fatih.live/#person" },
+						"creator": { "@id": "https://fatih.live/#person" },
+						"publisher": { "@id": "https://fatih.live/#person" }
+					},
+					{
+						"@type": "Person",
+						"@id": "https://fatih.live/#person",
+						"name": "Fatih Yılmaz",
+						"url": "https://fatih.live/",
+						"sameAs": ["https://github.com/queaxtra"]
+					},
+					{
+						"@type": "WebSite",
+						"@id": "https://fatih.live/#website",
+						"url": "https://fatih.live/",
+						"name": "Clario",
+						"inLanguage": "en",
+						"publisher": { "@id": "https://fatih.live/#person" }
+					}
+				]
+			}
+		</script>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
