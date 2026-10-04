@@ -3,6 +3,7 @@
 	import GalleryAddIcon from '../lib/components/icons/gallery-add-linear.svelte';
 	import { Button } from '../lib/components/ui/button';
 	import { Input } from '../lib/components/ui/input';
+	import { t } from '../lib/i18n';
 	import { cn } from '../lib/utils.js';
 	import examplePicture from '../assets/example.png?enhanced';
 
@@ -41,11 +42,11 @@
 		try {
 			parsed = new URL(url.trim());
 		} catch {
-			urlError = 'Enter a valid image URL.';
+			urlError = 'upload.errors.invalidUrl';
 			return;
 		}
 		if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-			urlError = 'Only http and https links are supported.';
+			urlError = 'upload.errors.unsupportedProtocol';
 			return;
 		}
 
@@ -57,7 +58,7 @@
 			onSelectFiles([new File([blob], name, { type: blob.type || 'image/png' })]);
 			url = '';
 		} catch {
-			urlError = 'Could not load that image.';
+			urlError = 'upload.errors.loadFailed';
 		} finally {
 			urlBusy = false;
 		}
@@ -118,7 +119,7 @@
 		disabled && 'opacity-60'
 	)}
 	role="region"
-	aria-label="Upload an image"
+	aria-label={t('upload.region')}
 	ondragover={(event) => {
 		event.preventDefault();
 		if (!disabled) dragging = true;
@@ -133,11 +134,11 @@
 	</span>
 
 	<div class="flex flex-col gap-1">
-		<p class="text-sm font-medium text-foreground">Drag and drop images</p>
-		<p class="text-xs text-muted-foreground">PNG, JPEG, or WebP. Add several at once.</p>
+		<p class="text-sm font-medium text-foreground">{t('upload.title')}</p>
+		<p class="text-xs text-muted-foreground">{t('upload.hint')}</p>
 	</div>
 
-	<Button onclick={() => input?.click()} {disabled}>Browse files</Button>
+	<Button onclick={() => input?.click()} {disabled}>{t('upload.browse')}</Button>
 	<input
 		bind:this={input}
 		class="sr-only"
@@ -152,20 +153,22 @@
 		<Input
 			bind:value={url}
 			type="url"
-			placeholder="Paste an image URL"
-			aria-label="Image URL"
+			placeholder={t('upload.urlPlaceholder')}
+			aria-label={t('upload.urlLabel')}
 			class="h-8 text-sm"
 			disabled={disabled || urlBusy}
 		/>
-		<Button type="submit" variant="outline" size="sm" disabled={disabled || urlBusy}>Load</Button>
+		<Button type="submit" variant="outline" size="sm" disabled={disabled || urlBusy}
+			>{t('upload.load')}</Button
+		>
 	</form>
 	{#if urlError}
-		<p class="-mt-4 text-xs text-destructive" role="alert">{urlError}</p>
+		<p class="-mt-4 text-xs text-destructive" role="alert">{t(urlError)}</p>
 	{/if}
 
 	<div class="flex w-full max-w-xs items-center gap-3">
 		<span class="h-px flex-1 bg-border"></span>
-		<span class="text-xs text-muted-foreground">or</span>
+		<span class="text-xs text-muted-foreground">{t('common.or')}</span>
 		<span class="h-px flex-1 bg-border"></span>
 	</div>
 
@@ -180,8 +183,8 @@
 			alt=""
 			class="size-6 rounded-md object-cover ring-1 ring-border"
 		/>
-		<span>Try an example</span>
+		<span>{t('upload.example')}</span>
 	</button>
 
-	<p class="text-xs text-muted-foreground">You can also paste an image with Ctrl/Cmd+V.</p>
+	<p class="text-xs text-muted-foreground">{t('upload.paste')}</p>
 </div>

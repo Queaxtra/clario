@@ -6,7 +6,6 @@
 		<meta name="text-scale" content="scale" />
 		<meta name="color-scheme" content="light dark" />
 		<script>
-			// apply the stored or system theme before paint to avoid a flash
 			(() => {
 				try {
 					const stored = localStorage.getItem('clario.theme');
@@ -15,6 +14,10 @@
 						(stored !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
 					document.documentElement.classList.toggle('dark', dark);
 					document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+					const locale = localStorage.getItem('clario.locale');
+					if (locale && ['en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'ru'].includes(locale)) {
+						document.documentElement.lang = locale;
+					}
 				} catch {
 					// storage can be unavailable, fall back to the default light theme
 				}

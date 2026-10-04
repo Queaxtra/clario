@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "or",
+		"yes": "Yes",
+		"no": "No",
+		"idle": "idle"
+	},
+	"language": {
+		"label": "Language",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "GitHub profile",
+		"x": "X profile",
+		"devMode": "Developer mode"
+	},
+	"header": {
+		"title": "Remove image backgrounds",
+		"subtitle": "Upload images and download clean cutouts. It all runs in your browser, so your images never leave your device."
+	},
+	"footer": {
+		"description": "Clario removes image backgrounds entirely in your browser. Your photos never leave your device.",
+		"source": "This project is open source on Github"
+	},
+	"upload": {
+		"region": "Upload an image",
+		"title": "Drag and drop images",
+		"hint": "PNG, JPEG, or WebP. Add several at once.",
+		"browse": "Browse files",
+		"urlPlaceholder": "Paste an image URL",
+		"urlLabel": "Image URL",
+		"load": "Load",
+		"example": "Try an example",
+		"paste": "You can also paste an image with Ctrl/Cmd+V.",
+		"errors": {
+			"invalidUrl": "Enter a valid image URL.",
+			"unsupportedProtocol": "Only http and https links are supported.",
+			"loadFailed": "Could not load that image."
+		}
+	},
+	"preview": {
+		"processing": "Removing background",
+		"compareAlt": "Background removed",
+		"originalAlt": "Original",
+		"frameLabel": "Image comparison",
+		"handleLabel": "Compare original and result",
+		"zoomLabel": "Zoom",
+		"zoomOut": "Zoom out",
+		"zoomIn": "Zoom in",
+		"resetZoom": "Reset zoom",
+		"copy": "Copy image",
+		"share": "Share image",
+		"downloadAll": "Download all",
+		"newImage": "New image",
+		"download": "Download",
+		"dragHint": "Drag the handle to compare",
+		"counter": "Image {index} of {count}",
+		"errorTitle": "Could not process this image",
+		"notices": {
+			"copied": "Copied to clipboard",
+			"copyUnsupported": "Copy is not supported in this browser",
+			"shareUnsupported": "Sharing is not supported in this browser"
+		}
+	},
+	"status": {
+		"preparing": "Preparing model",
+		"errorTitle": "Could not load the model",
+		"errorFallback": "Reload the page and try again."
+	},
+	"batch": {
+		"label": "Selected images",
+		"imageLabel": "Image {index}"
+	},
+	"options": {
+		"background": "Background",
+		"kinds": {
+			"transparent": "Transparent",
+			"white": "White",
+			"black": "Black",
+			"custom": "Custom",
+			"gradient": "Gradient",
+			"image": "Image"
+		},
+		"customColor": "Custom background color",
+		"gradientStart": "Gradient start color",
+		"gradientEnd": "Gradient end color",
+		"angle": "Angle",
+		"change": "Change",
+		"removeImage": "Remove background image",
+		"chooseImage": "Choose image",
+		"styling": "Styling",
+		"padding": "Padding",
+		"shadow": "Drop shadow",
+		"shadowHint": "Soft shadow under the subject.",
+		"outline": "Outline",
+		"outlineColor": "Outline color",
+		"watermark": "Watermark",
+		"watermarkPlaceholder": "Add a label"
+	},
+	"developer": {
+		"title": "Developer",
+		"description": "Runtime details, model controls, and the last run.",
+		"session": "Session",
+		"model": "Model",
+		"phase": "Phase",
+		"processing": "Processing",
+		"provider": "Provider",
+		"modelFiles": "model files",
+		"hardware": "Hardware",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Runs the model on the GPU for a large speed boost when the browser and hardware support it.",
+		"simd": "SIMD",
+		"simdHint": "WebAssembly SIMD speeds up the CPU fallback used when WebGPU is not available.",
+		"threads": "Threads",
+		"threadsHint": "Shared memory threads let the CPU fallback use several cores in parallel.",
+		"cores": "Cores",
+		"coresHint": "Logical cores reported by the browser, used to size the Wasm thread pool.",
+		"executionProvider": "Execution provider",
+		"executionProviderHint": "The backend that runs the model. webgpu is fastest, wasm is the compatible fallback on older devices.",
+		"precision": "Precision",
+		"precisionHint": "Weight precision. q8 is the smallest download, fp32 is the most accurate and the largest.",
+		"maskMode": "Mask mode",
+		"maskModeHint": "How model output becomes alpha. minmax matches the reference tool, sigmoid gives a softer, more contrasty mapping.",
+		"outputFormat": "Output format",
+		"outputFormatHint": "PNG keeps transparency, WebP is smaller, JPEG is the smallest but has no transparency.",
+		"cutoff": "Cutoff",
+		"cutoffHint": "Makes everything below this alpha level fully transparent. Useful for trimming halos and stray pixels.",
+		"gamma": "Gamma",
+		"gammaHint": "Bends the alpha curve. Below 1 keeps more of the subject, above 1 tightens soft edges.",
+		"tiling": "High-resolution tiling",
+		"tilingHint": "Runs the model on overlapping tiles for large images so edges stay sharp. Slower to run.",
+		"invert": "Invert mask",
+		"invertHint": "Swaps the subject and the background.",
+		"feather": "Edge feather",
+		"featherHint": "Softens the mask edge by a few pixels. 0 turns it off.",
+		"refine": "Edge-aware refine",
+		"refineHint": "Feathers with a guided filter that follows image edges instead of blurring across them. Needs feather above 0.",
+		"quality": "Quality",
+		"qualityHint": "Encoder quality for the lossy formats WebP and JPEG. PNG is always lossless and ignores it.",
+		"lastResult": "Last result",
+		"time": "Time",
+		"resolution": "Resolution",
+		"fileSize": "File size",
+		"inference": "Inference",
+		"inferenceReused": "reused",
+		"inferenceFull": "full",
+		"tiles": "Tiles",
+		"noResult": "No result yet.",
+		"status": {
+			"idle": "idle",
+			"loading": "loading",
+			"ready": "ready",
+			"error": "error"
+		},
+		"phases": {
+			"download": "download",
+			"compile": "compile",
+			"warmup": "warmup",
+			"infer": "infer",
+			"postprocess": "postprocess"
+		},
+		"maskModes": {
+			"minmax": "minmax (reference)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (lossless)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Free AI background remover that runs in your browser. Remove image backgrounds and download transparent PNGs in seconds. No signup, no upload needed.",
+		"metaKeywords": "background remover, remove background, AI background remover, transparent PNG, image cutout, remove bg, free background eraser, bulk background removal, no upload background remover",
+		"errors": {
+			"chooseImage": "Choose an image file (PNG, JPEG, or WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "The model is not loaded. Reload the page and try again.",
+		"modelSessionNotFound": "The model could not be initialized. Reload the page and try again.",
+		"canvasContext": "This browser could not create the drawing surface needed to process the image.",
+		"backgroundImage": "The background image could not be loaded.",
+		"imageUnavailable": "The image could not be loaded.",
+		"notAnImage": "That link does not point to an image.",
+		"encodeFailed": "The image could not be encoded.",
+		"unsupported": "This action is not supported in this browser."
+	}
+}

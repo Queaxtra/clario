@@ -9,6 +9,7 @@
 	import { Slider } from '../lib/components/ui/slider';
 	import { Switch } from '../lib/components/ui/switch';
 	import { Toggle } from '../lib/components/ui/toggle';
+	import { t } from '../lib/i18n';
 	import { cn } from '../lib/utils.js';
 
 	type BackgroundKind = 'transparent' | 'white' | 'black' | 'custom' | 'gradient' | 'image';
@@ -32,13 +33,13 @@
 
 	let imageInput = $state<HTMLInputElement | null>(null);
 
-	const kinds: { value: BackgroundKind; label: string }[] = [
-		{ value: 'transparent', label: 'Transparent' },
-		{ value: 'white', label: 'White' },
-		{ value: 'black', label: 'Black' },
-		{ value: 'custom', label: 'Custom' },
-		{ value: 'gradient', label: 'Gradient' },
-		{ value: 'image', label: 'Image' }
+	const kinds: { value: BackgroundKind; key: string }[] = [
+		{ value: 'transparent', key: 'options.kinds.transparent' },
+		{ value: 'white', key: 'options.kinds.white' },
+		{ value: 'black', key: 'options.kinds.black' },
+		{ value: 'custom', key: 'options.kinds.custom' },
+		{ value: 'gradient', key: 'options.kinds.gradient' },
+		{ value: 'image', key: 'options.kinds.image' }
 	];
 
 	const initialKind = untrack(() => options.backgroundKind);
@@ -96,7 +97,9 @@
 <Card.Root size="sm">
 	<Card.Content class="gap-6">
 		<div role="group" aria-labelledby="background-label" class="flex flex-col gap-3">
-			<span id="background-label" class="text-sm font-medium text-foreground">Background</span>
+			<span id="background-label" class="text-sm font-medium text-foreground"
+				>{t('options.background')}</span
+			>
 
 			<div class="flex flex-wrap gap-2">
 				{#each kinds as kind (kind.value)}
@@ -120,7 +123,7 @@
 								style={swatchStyle(kind.value)}
 							></span>
 						{/if}
-						{kind.label}
+						{t(kind.key)}
 					</Toggle>
 				{/each}
 			</div>
@@ -132,7 +135,7 @@
 						bind:value={options.customColor}
 						onchange={onCommit}
 						class="size-8 shrink-0 cursor-pointer rounded-md border border-input bg-transparent p-0.5"
-						aria-label="Custom background color"
+						aria-label={t('options.customColor')}
 					/>
 					<span class="font-mono text-xs text-muted-foreground uppercase">
 						{options.customColor}
@@ -148,14 +151,14 @@
 							bind:value={options.gradientFrom}
 							onchange={onCommit}
 							class="size-8 shrink-0 cursor-pointer rounded-md border border-input bg-transparent p-0.5"
-							aria-label="Gradient start color"
+							aria-label={t('options.gradientStart')}
 						/>
 						<input
 							type="color"
 							bind:value={options.gradientTo}
 							onchange={onCommit}
 							class="size-8 shrink-0 cursor-pointer rounded-md border border-input bg-transparent p-0.5"
-							aria-label="Gradient end color"
+							aria-label={t('options.gradientEnd')}
 						/>
 						<span class="font-mono text-xs text-muted-foreground uppercase">
 							{options.gradientFrom} / {options.gradientTo}
@@ -164,7 +167,7 @@
 
 					<div class="flex flex-col gap-2">
 						<div class="flex items-center justify-between">
-							<span class="text-xs text-muted-foreground">Angle</span>
+							<span class="text-xs text-muted-foreground">{t('options.angle')}</span>
 							<span class="text-xs text-muted-foreground tabular-nums">
 								{options.gradientAngle}°
 							</span>
@@ -192,11 +195,13 @@
 						<span class="min-w-0 flex-1 truncate text-xs text-muted-foreground">
 							{options.backgroundImageName}
 						</span>
-						<Button variant="outline" size="sm" onclick={() => imageInput?.click()}>Change</Button>
+						<Button variant="outline" size="sm" onclick={() => imageInput?.click()}
+							>{t('options.change')}</Button
+						>
 						<Button
 							variant="ghost"
 							size="icon-sm"
-							aria-label="Remove background image"
+							aria-label={t('options.removeImage')}
 							onclick={() => {
 								URL.revokeObjectURL(options.backgroundImageUrl);
 								options.backgroundImageUrl = '';
@@ -208,7 +213,8 @@
 						</Button>
 					{:else}
 						<Button variant="outline" size="sm" onclick={() => imageInput?.click()}>
-							<GalleryAddIcon data-icon="inline-start" /> Choose image
+							<GalleryAddIcon data-icon="inline-start" />
+							{t('options.chooseImage')}
 						</Button>
 					{/if}
 				</div>
@@ -226,11 +232,13 @@
 		<Separator />
 
 		<div role="group" aria-labelledby="styling-label" class="flex flex-col gap-4">
-			<span id="styling-label" class="text-sm font-medium text-foreground">Styling</span>
+			<span id="styling-label" class="text-sm font-medium text-foreground"
+				>{t('options.styling')}</span
+			>
 
 			<div class="flex flex-col gap-2">
 				<div class="flex items-center justify-between">
-					<span class="text-xs text-muted-foreground">Padding</span>
+					<span class="text-xs text-muted-foreground">{t('options.padding')}</span>
 					<span class="text-xs text-muted-foreground tabular-nums">{options.padding} px</span>
 				</div>
 				<Slider
@@ -245,15 +253,15 @@
 
 			<div class="flex items-center justify-between gap-3">
 				<div class="flex flex-col gap-0.5">
-					<span class="text-xs text-muted-foreground">Drop shadow</span>
-					<span class="text-xs text-muted-foreground/70">Soft shadow under the subject.</span>
+					<span class="text-xs text-muted-foreground">{t('options.shadow')}</span>
+					<span class="text-xs text-muted-foreground/70">{t('options.shadowHint')}</span>
 				</div>
 				<Switch bind:checked={options.shadow} onCheckedChange={onCommit} />
 			</div>
 
 			<div class="flex flex-col gap-2">
 				<div class="flex items-center justify-between">
-					<span class="text-xs text-muted-foreground">Outline</span>
+					<span class="text-xs text-muted-foreground">{t('options.outline')}</span>
 					<span class="text-xs text-muted-foreground tabular-nums">{options.border} px</span>
 				</div>
 				<div class="flex items-center gap-2.5">
@@ -263,7 +271,7 @@
 							bind:value={options.borderColor}
 							onchange={onCommit}
 							class="size-8 shrink-0 cursor-pointer rounded-md border border-input bg-transparent p-0.5"
-							aria-label="Outline color"
+							aria-label={t('options.outlineColor')}
 						/>
 					{/if}
 					<Slider
@@ -279,10 +287,10 @@
 			</div>
 
 			<div class="flex flex-col gap-2">
-				<span class="text-xs text-muted-foreground">Watermark</span>
+				<span class="text-xs text-muted-foreground">{t('options.watermark')}</span>
 				<Input
 					bind:value={options.watermark}
-					placeholder="Add a label"
+					placeholder={t('options.watermarkPlaceholder')}
 					class="h-8 text-sm"
 					onchange={onCommit}
 				/>

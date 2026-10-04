@@ -9,6 +9,7 @@
 	import PreviewPanel from '../components/PreviewPanel.svelte';
 	import StatusBadge from '../components/StatusBadge.svelte';
 	import UploadDropzone from '../components/UploadDropzone.svelte';
+	import { t } from '../lib/i18n';
 	import {
 		BackgroundRemovalEngine,
 		DEFAULT_RUN_OPTIONS,
@@ -170,7 +171,7 @@
 	function addFiles(files: File[]) {
 		const images = files.filter((file) => file.type.startsWith('image/'));
 		if (!images.length) {
-			uploadError = 'Choose an image file (PNG, JPEG, or WebP).';
+			uploadError = 'page.errors.chooseImage';
 			return;
 		}
 
@@ -403,14 +404,8 @@
 </script>
 
 <svelte:head>
-	<meta
-		name="description"
-		content="Free AI background remover that runs in your browser. Remove image backgrounds and download transparent PNGs in seconds. No signup, no upload needed."
-	/>
-	<meta
-		name="keywords"
-		content="background remover, remove background, AI background remover, transparent PNG, image cutout, remove bg, free background eraser, bulk background removal, no upload background remover"
-	/>
+	<meta name="description" content={t('page.metaDescription')} />
+	<meta name="keywords" content={t('page.metaKeywords')} />
 </svelte:head>
 
 <div class="flex min-h-dvh flex-col">
@@ -448,7 +443,7 @@
 			{:else}
 				<UploadDropzone onSelectFiles={addFiles} disabled={modelStatus === 'error'} />
 				{#if uploadError}
-					<p class="text-sm text-destructive" role="alert">{uploadError}</p>
+					<p class="text-sm text-destructive" role="alert">{t(uploadError)}</p>
 				{/if}
 			{/if}
 

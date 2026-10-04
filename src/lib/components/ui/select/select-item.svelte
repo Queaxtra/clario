@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Select as SelectPrimitive } from 'bits-ui';
-	import CheckIcon from '#lib/components/icons/check-read-linear.svelte';
+	import CheckIcon from '#lib/components/icons/check-linear.svelte';
 	import { cn, type WithoutChild } from '#lib/utils.js';
 
 	let {

@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "o",
+		"yes": "Sì",
+		"no": "No",
+		"idle": "inattivo"
+	},
+	"language": {
+		"label": "Lingua",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "Profilo GitHub",
+		"x": "Profilo X",
+		"devMode": "Modalità sviluppatore"
+	},
+	"header": {
+		"title": "Rimuovi lo sfondo dalle immagini",
+		"subtitle": "Carica le immagini e scarica ritagli puliti. Tutto avviene nel browser, quindi le tue immagini non lasciano mai il dispositivo."
+	},
+	"footer": {
+		"description": "Clario rimuove completamente lo sfondo delle immagini nel tuo browser. Le tue foto non lasciano mai il dispositivo.",
+		"source": "Questo progetto è open source su GitHub"
+	},
+	"upload": {
+		"region": "Carica un'immagine",
+		"title": "Trascina e rilascia le immagini",
+		"hint": "PNG, JPEG o WebP. Aggiungine più di una alla volta.",
+		"browse": "Scegli file",
+		"urlPlaceholder": "Incolla l'URL di un'immagine",
+		"urlLabel": "URL dell'immagine",
+		"load": "Carica",
+		"example": "Prova un esempio",
+		"paste": "Puoi anche incollare un'immagine con Ctrl/Cmd+V.",
+		"errors": {
+			"invalidUrl": "Inserisci un URL di immagine valido.",
+			"unsupportedProtocol": "Sono supportati solo i link http e https.",
+			"loadFailed": "Impossibile caricare quell'immagine."
+		}
+	},
+	"preview": {
+		"processing": "Rimozione dello sfondo",
+		"compareAlt": "Sfondo rimosso",
+		"originalAlt": "Originale",
+		"frameLabel": "Confronto immagini",
+		"handleLabel": "Confronta originale e risultato",
+		"zoomLabel": "Zoom",
+		"zoomOut": "Riduci",
+		"zoomIn": "Ingrandisci",
+		"resetZoom": "Reimposta zoom",
+		"copy": "Copia immagine",
+		"share": "Condividi immagine",
+		"downloadAll": "Scarica tutto",
+		"newImage": "Nuova immagine",
+		"download": "Scarica",
+		"dragHint": "Trascina la maniglia per confrontare",
+		"counter": "Immagine {index} di {count}",
+		"errorTitle": "Impossibile elaborare questa immagine",
+		"notices": {
+			"copied": "Copiato negli appunti",
+			"copyUnsupported": "La copia non è supportata in questo browser",
+			"shareUnsupported": "La condivisione non è supportata in questo browser"
+		}
+	},
+	"status": {
+		"preparing": "Preparazione del modello",
+		"errorTitle": "Impossibile caricare il modello",
+		"errorFallback": "Ricarica la pagina e riprova."
+	},
+	"batch": {
+		"label": "Immagini selezionate",
+		"imageLabel": "Immagine {index}"
+	},
+	"options": {
+		"background": "Sfondo",
+		"kinds": {
+			"transparent": "Trasparente",
+			"white": "Bianco",
+			"black": "Nero",
+			"custom": "Personalizzato",
+			"gradient": "Sfumatura",
+			"image": "Immagine"
+		},
+		"customColor": "Colore di sfondo personalizzato",
+		"gradientStart": "Colore iniziale della sfumatura",
+		"gradientEnd": "Colore finale della sfumatura",
+		"angle": "Angolo",
+		"change": "Cambia",
+		"removeImage": "Rimuovi immagine di sfondo",
+		"chooseImage": "Scegli immagine",
+		"styling": "Stile",
+		"padding": "Margine",
+		"shadow": "Ombra",
+		"shadowHint": "Ombra morbida sotto il soggetto.",
+		"outline": "Contorno",
+		"outlineColor": "Colore del contorno",
+		"watermark": "Filigrana",
+		"watermarkPlaceholder": "Aggiungi un'etichetta"
+	},
+	"developer": {
+		"title": "Sviluppatore",
+		"description": "Dettagli di esecuzione, controlli del modello e ultima esecuzione.",
+		"session": "Sessione",
+		"model": "Modello",
+		"phase": "Fase",
+		"processing": "Elaborazione",
+		"provider": "Provider",
+		"modelFiles": "file del modello",
+		"hardware": "Hardware",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Esegue il modello sulla GPU per un grande aumento di velocità quando browser e hardware lo supportano.",
+		"simd": "SIMD",
+		"simdHint": "Il SIMD di WebAssembly velocizza il fallback CPU usato quando WebGPU non è disponibile.",
+		"threads": "Thread",
+		"threadsHint": "La memoria condivisa consente al fallback CPU di usare più core in parallelo.",
+		"cores": "Core",
+		"coresHint": "Core logici segnalati dal browser, usati per dimensionare il pool di thread Wasm.",
+		"executionProvider": "Provider di esecuzione",
+		"executionProviderHint": "Il backend che esegue il modello. webgpu è il più veloce, wasm è il fallback compatibile sui dispositivi più vecchi.",
+		"precision": "Precisione",
+		"precisionHint": "Precisione dei pesi. q8 è il download più piccolo, fp32 è il più accurato e il più grande.",
+		"maskMode": "Modalità maschera",
+		"maskModeHint": "Come l'output del modello diventa alfa. minmax corrisponde allo strumento di riferimento, sigmoid offre una mappatura più morbida e contrastata.",
+		"outputFormat": "Formato di output",
+		"outputFormatHint": "PNG mantiene la trasparenza, WebP è più piccolo, JPEG è il più piccolo ma senza trasparenza.",
+		"cutoff": "Soglia",
+		"cutoffHint": "Rende completamente trasparente tutto ciò che è sotto questo livello di alfa. Utile per eliminare aloni e pixel spuri.",
+		"gamma": "Gamma",
+		"gammaHint": "Curva l'alfa. Sotto 1 conserva di più il soggetto, sopra 1 stringe i bordi morbidi.",
+		"tiling": "Tassellatura ad alta risoluzione",
+		"tilingHint": "Esegue il modello su tessere sovrapposte per le immagini grandi, così i bordi restano nitidi. Più lento.",
+		"invert": "Inverti maschera",
+		"invertHint": "Scambia il soggetto e lo sfondo.",
+		"feather": "Ammorbidimento bordi",
+		"featherHint": "Ammorbidisce il bordo della maschera di alcuni pixel. 0 lo disattiva.",
+		"refine": "Rifinitura sensibile ai bordi",
+		"refineHint": "Ammorbidisce con un filtro guidato che segue i bordi dell'immagine invece di sfumarli. Richiede ammorbidimento maggiore di 0.",
+		"quality": "Qualità",
+		"qualityHint": "Qualità dell'encoder per i formati con perdita WebP e JPEG. PNG è sempre senza perdita e la ignora.",
+		"lastResult": "Ultimo risultato",
+		"time": "Tempo",
+		"resolution": "Risoluzione",
+		"fileSize": "Dimensione file",
+		"inference": "Inferenza",
+		"inferenceReused": "riutilizzata",
+		"inferenceFull": "completa",
+		"tiles": "Tessere",
+		"noResult": "Nessun risultato per ora.",
+		"status": {
+			"idle": "inattivo",
+			"loading": "caricamento",
+			"ready": "pronto",
+			"error": "errore"
+		},
+		"phases": {
+			"download": "download",
+			"compile": "compilazione",
+			"warmup": "riscaldamento",
+			"infer": "inferenza",
+			"postprocess": "post-elaborazione"
+		},
+		"maskModes": {
+			"minmax": "minmax (riferimento)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (senza perdita)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Rimozione sfondo con IA gratuita che funziona nel browser. Rimuovi lo sfondo delle immagini e scarica PNG trasparenti in pochi secondi. Nessuna registrazione, nessun caricamento.",
+		"metaKeywords": "rimuovi sfondo, rimozione sfondo, IA sfondo, PNG trasparente, ritaglio immagine, togli bg, gomma sfondo gratis, rimozione sfondo in blocco, sfondo senza caricamento",
+		"errors": {
+			"chooseImage": "Scegli un file immagine (PNG, JPEG o WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "Il modello non è caricato. Ricarica la pagina e riprova.",
+		"modelSessionNotFound": "Impossibile inizializzare il modello. Ricarica la pagina e riprova.",
+		"canvasContext": "Questo browser non ha potuto creare la superficie di disegno necessaria per elaborare l'immagine.",
+		"backgroundImage": "Impossibile caricare l'immagine di sfondo.",
+		"imageUnavailable": "Impossibile caricare l'immagine.",
+		"notAnImage": "Quel link non punta a un'immagine.",
+		"encodeFailed": "Impossibile codificare l'immagine.",
+		"unsupported": "Questa azione non è supportata in questo browser."
+	}
+}

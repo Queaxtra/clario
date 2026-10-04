@@ -4,7 +4,9 @@
 	import XLogo from '../lib/components/icons/x-logo.svelte';
 	import { Button } from '../lib/components/ui/button';
 	import { Toggle } from '../lib/components/ui/toggle';
-	import ThemeToggle from '../lib/theme/ThemeToggle.svelte';
+	import { t } from '../lib/i18n';
+	import ThemeToggle from './ThemeToggle.svelte';
+	import Translate from './Translate.svelte';
 
 	let { devMode = $bindable(false) }: { devMode?: boolean } = $props();
 </script>
@@ -20,7 +22,7 @@
 				href="https://github.com/queaxtra"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="GitHub profile"
+				aria-label={t('navbar.github')}
 				class="text-muted-foreground hover:text-foreground max-sm:size-9"
 			>
 				<GithubLogo class="size-3.5" />
@@ -31,17 +33,18 @@
 				href="https://x.com/queaxtra"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="X profile"
+				aria-label={t('navbar.x')}
 				class="text-muted-foreground hover:text-foreground max-sm:size-9"
 			>
 				<XLogo class="size-3.5" />
 			</Button>
+			<Translate />
 			<ThemeToggle />
 			<Toggle
 				size="sm"
 				bind:pressed={devMode}
-				aria-label="Developer mode"
-				class="px-0 text-muted-foreground aria-pressed:text-foreground max-sm:size-9"
+				aria-label={t('navbar.devMode')}
+				class="rounded-[min(var(--radius-md),10px)] px-0 text-muted-foreground aria-pressed:text-foreground max-sm:size-9"
 			>
 				<CodeSquareIcon class="size-3.5" />
 			</Toggle>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import GithubLogo from '../lib/components/icons/github-logo.svelte';
 	import { Separator } from '../lib/components/ui/separator';
+	import { t } from '../lib/i18n';
 </script>
 
 <footer class="w-full">
@@ -9,8 +10,7 @@
 		<div class="flex flex-col gap-2.5 pt-8 max-sm:pt-6">
 			<p class="text-sm font-semibold tracking-tight text-foreground">Fatih Yılmaz</p>
 			<p class="max-w-md text-sm leading-relaxed text-muted-foreground">
-				Clario removes image backgrounds entirely in your browser. Your photos never leave your
-				device.
+				{t('footer.description')}
 			</p>
 			<a
 				href="https://github.com/queaxtra/clario"
@@ -19,7 +19,7 @@
 				class="mt-1 inline-flex w-fit items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
 			>
 				<GithubLogo class="size-3.5" />
-				This project is open source on Github
+				{t('footer.source')}
 			</a>
 		</div>
 	</div>

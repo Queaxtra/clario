@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "ou",
+		"yes": "Oui",
+		"no": "Non",
+		"idle": "inactif"
+	},
+	"language": {
+		"label": "Langue",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "Profil GitHub",
+		"x": "Profil X",
+		"devMode": "Mode développeur"
+	},
+	"header": {
+		"title": "Supprimer l'arrière-plan des images",
+		"subtitle": "Importez des images et téléchargez des détourages propres. Tout fonctionne dans votre navigateur, vos images ne quittent jamais votre appareil."
+	},
+	"footer": {
+		"description": "Clario supprime entièrement l'arrière-plan des images dans votre navigateur. Vos photos ne quittent jamais votre appareil.",
+		"source": "Ce projet est open source sur GitHub"
+	},
+	"upload": {
+		"region": "Importer une image",
+		"title": "Glissez-déposez des images",
+		"hint": "PNG, JPEG ou WebP. Ajoutez-en plusieurs à la fois.",
+		"browse": "Parcourir les fichiers",
+		"urlPlaceholder": "Collez l'URL d'une image",
+		"urlLabel": "URL de l'image",
+		"load": "Charger",
+		"example": "Essayer un exemple",
+		"paste": "Vous pouvez aussi coller une image avec Ctrl/Cmd+V.",
+		"errors": {
+			"invalidUrl": "Saisissez une URL d'image valide.",
+			"unsupportedProtocol": "Seuls les liens http et https sont pris en charge.",
+			"loadFailed": "Impossible de charger cette image."
+		}
+	},
+	"preview": {
+		"processing": "Suppression de l'arrière-plan",
+		"compareAlt": "Arrière-plan supprimé",
+		"originalAlt": "Original",
+		"frameLabel": "Comparaison d'images",
+		"handleLabel": "Comparer l'original et le résultat",
+		"zoomLabel": "Zoom",
+		"zoomOut": "Zoom arrière",
+		"zoomIn": "Zoom avant",
+		"resetZoom": "Réinitialiser le zoom",
+		"copy": "Copier l'image",
+		"share": "Partager l'image",
+		"downloadAll": "Tout télécharger",
+		"newImage": "Nouvelle image",
+		"download": "Télécharger",
+		"dragHint": "Faites glisser la poignée pour comparer",
+		"counter": "Image {index} sur {count}",
+		"errorTitle": "Impossible de traiter cette image",
+		"notices": {
+			"copied": "Copié dans le presse-papiers",
+			"copyUnsupported": "La copie n'est pas prise en charge par ce navigateur",
+			"shareUnsupported": "Le partage n'est pas pris en charge par ce navigateur"
+		}
+	},
+	"status": {
+		"preparing": "Préparation du modèle",
+		"errorTitle": "Impossible de charger le modèle",
+		"errorFallback": "Rechargez la page et réessayez."
+	},
+	"batch": {
+		"label": "Images sélectionnées",
+		"imageLabel": "Image {index}"
+	},
+	"options": {
+		"background": "Arrière-plan",
+		"kinds": {
+			"transparent": "Transparent",
+			"white": "Blanc",
+			"black": "Noir",
+			"custom": "Personnalisé",
+			"gradient": "Dégradé",
+			"image": "Image"
+		},
+		"customColor": "Couleur d'arrière-plan personnalisée",
+		"gradientStart": "Couleur de début du dégradé",
+		"gradientEnd": "Couleur de fin du dégradé",
+		"angle": "Angle",
+		"change": "Modifier",
+		"removeImage": "Supprimer l'image d'arrière-plan",
+		"chooseImage": "Choisir une image",
+		"styling": "Style",
+		"padding": "Marge",
+		"shadow": "Ombre portée",
+		"shadowHint": "Ombre douce sous le sujet.",
+		"outline": "Contour",
+		"outlineColor": "Couleur du contour",
+		"watermark": "Filigrane",
+		"watermarkPlaceholder": "Ajouter un libellé"
+	},
+	"developer": {
+		"title": "Développeur",
+		"description": "Détails d'exécution, contrôles du modèle et dernière exécution.",
+		"session": "Session",
+		"model": "Modèle",
+		"phase": "Phase",
+		"processing": "Traitement",
+		"provider": "Fournisseur",
+		"modelFiles": "fichiers du modèle",
+		"hardware": "Matériel",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Exécute le modèle sur le GPU pour un important gain de vitesse lorsque le navigateur et le matériel le prennent en charge.",
+		"simd": "SIMD",
+		"simdHint": "Le SIMD WebAssembly accélère le repli CPU utilisé lorsque WebGPU n'est pas disponible.",
+		"threads": "Threads",
+		"threadsHint": "La mémoire partagée permet au repli CPU d'utiliser plusieurs cœurs en parallèle.",
+		"cores": "Cœurs",
+		"coresHint": "Cœurs logiques signalés par le navigateur, utilisés pour dimensionner le pool de threads Wasm.",
+		"executionProvider": "Fournisseur d'exécution",
+		"executionProviderHint": "Le backend qui exécute le modèle. webgpu est le plus rapide, wasm est le repli compatible sur les appareils plus anciens.",
+		"precision": "Précision",
+		"precisionHint": "Précision des poids. q8 est le téléchargement le plus petit, fp32 est le plus précis et le plus volumineux.",
+		"maskMode": "Mode de masque",
+		"maskModeHint": "Comment la sortie du modèle devient l'alpha. minmax correspond à l'outil de référence, sigmoid donne un rendu plus doux et plus contrasté.",
+		"outputFormat": "Format de sortie",
+		"outputFormatHint": "PNG conserve la transparence, WebP est plus petit, JPEG est le plus petit mais sans transparence.",
+		"cutoff": "Seuil",
+		"cutoffHint": "Rend tout ce qui est en dessous de ce niveau d'alpha totalement transparent. Utile pour éliminer les halos et les pixels parasites.",
+		"gamma": "Gamma",
+		"gammaHint": "Courbe l'alpha. En dessous de 1 conserve davantage le sujet, au-dessus de 1 resserre les bords doux.",
+		"tiling": "Tuilage haute résolution",
+		"tilingHint": "Exécute le modèle sur des tuiles qui se chevauchent pour les grandes images afin de garder des bords nets. Plus lent.",
+		"invert": "Inverser le masque",
+		"invertHint": "Échange le sujet et l'arrière-plan.",
+		"feather": "Adoucissement des bords",
+		"featherHint": "Adoucit le bord du masque de quelques pixels. 0 le désactive.",
+		"refine": "Affinage sensible aux bords",
+		"refineHint": "Adoucit avec un filtre guidé qui suit les bords de l'image au lieu de les estomper. Nécessite un adoucissement supérieur à 0.",
+		"quality": "Qualité",
+		"qualityHint": "Qualité de l'encodeur pour les formats avec perte WebP et JPEG. PNG est toujours sans perte et l'ignore.",
+		"lastResult": "Dernier résultat",
+		"time": "Temps",
+		"resolution": "Résolution",
+		"fileSize": "Taille du fichier",
+		"inference": "Inférence",
+		"inferenceReused": "réutilisée",
+		"inferenceFull": "complète",
+		"tiles": "Tuiles",
+		"noResult": "Aucun résultat pour l'instant.",
+		"status": {
+			"idle": "inactif",
+			"loading": "chargement",
+			"ready": "prêt",
+			"error": "erreur"
+		},
+		"phases": {
+			"download": "téléchargement",
+			"compile": "compilation",
+			"warmup": "préchauffage",
+			"infer": "inférence",
+			"postprocess": "post-traitement"
+		},
+		"maskModes": {
+			"minmax": "minmax (référence)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (sans perte)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Suppresseur d'arrière-plan par IA gratuit qui fonctionne dans votre navigateur. Supprimez l'arrière-plan des images et téléchargez des PNG transparents en quelques secondes. Sans inscription ni envoi.",
+		"metaKeywords": "supprimer arrière-plan, suppresseur d'arrière-plan, IA arrière-plan, PNG transparent, détourage d'image, enlever bg, gomme d'arrière-plan gratuite, suppression d'arrière-plan en masse, arrière-plan sans envoi",
+		"errors": {
+			"chooseImage": "Choisissez un fichier image (PNG, JPEG ou WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "Le modèle n'est pas chargé. Rechargez la page et réessayez.",
+		"modelSessionNotFound": "Le modèle n'a pas pu être initialisé. Rechargez la page et réessayez.",
+		"canvasContext": "Ce navigateur n'a pas pu créer la surface de dessin nécessaire au traitement de l'image.",
+		"backgroundImage": "L'image d'arrière-plan n'a pas pu être chargée.",
+		"imageUnavailable": "L'image n'a pas pu être chargée.",
+		"notAnImage": "Ce lien ne pointe pas vers une image.",
+		"encodeFailed": "L'image n'a pas pu être encodée.",
+		"unsupported": "Cette action n'est pas prise en charge par ce navigateur."
+	}
+}

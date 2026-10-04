@@ -8,6 +8,7 @@
 	import { Slider } from '../lib/components/ui/slider';
 	import { Switch } from '../lib/components/ui/switch';
 	import * as Tooltip from '../lib/components/ui/tooltip';
+	import { t, tError } from '../lib/i18n';
 	import {
 		MODEL_LICENSE,
 		type Capabilities,
@@ -59,35 +60,37 @@
 		onApplyModel: (device: Device, dtype: Dtype) => void;
 	} = $props();
 
-	const yesNo = (value: boolean | undefined) => (value ? 'yes' : 'no');
+	const yesNo = (value: boolean | undefined) => (value ? t('common.yes') : t('common.no'));
 </script>
 
 <Tooltip.Provider>
 	<Card.Root>
 		<Card.Header>
-			<Card.Title>Developer</Card.Title>
-			<Card.Description>Runtime details, model controls, and the last run.</Card.Description>
+			<Card.Title>{t('developer.title')}</Card.Title>
+			<Card.Description>{t('developer.description')}</Card.Description>
 		</Card.Header>
 
 		<Card.Content class="gap-6">
 			<section class="flex flex-col gap-3">
-				<h3 class="text-xs font-medium text-muted-foreground">Session</h3>
+				<h3 class="text-xs font-medium text-muted-foreground">{t('developer.session')}</h3>
 
 				<dl class="grid grid-cols-2 gap-x-6 gap-y-3 max-sm:gap-x-4 sm:grid-cols-4">
 					<div class="flex flex-col gap-0.5">
-						<dt class="text-xs text-muted-foreground">Model</dt>
-						<dd class="text-sm font-medium">{modelStatus}</dd>
+						<dt class="text-xs text-muted-foreground">{t('developer.model')}</dt>
+						<dd class="text-sm font-medium">{t(`developer.status.${modelStatus}`)}</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
-						<dt class="text-xs text-muted-foreground">Phase</dt>
-						<dd class="text-sm font-medium">{phase || 'idle'}</dd>
+						<dt class="text-xs text-muted-foreground">{t('developer.phase')}</dt>
+						<dd class="text-sm font-medium">
+							{phase ? t(`developer.phases.${phase}`) : t('common.idle')}
+						</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
-						<dt class="text-xs text-muted-foreground">Processing</dt>
+						<dt class="text-xs text-muted-foreground">{t('developer.processing')}</dt>
 						<dd class="text-sm font-medium">{yesNo(processing)}</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
-						<dt class="text-xs text-muted-foreground">Provider</dt>
+						<dt class="text-xs text-muted-foreground">{t('developer.provider')}</dt>
 						<dd class="font-mono text-sm font-medium">{device}</dd>
 					</div>
 				</dl>
@@ -96,7 +99,7 @@
 					<div class="flex flex-col gap-1.5">
 						<div class="flex items-baseline justify-between gap-3">
 							<span class="truncate text-xs text-muted-foreground"
-								>{progressFile || 'model files'}</span
+								>{progressFile || t('developer.modelFiles')}</span
 							>
 							<span class="text-xs text-muted-foreground tabular-nums">{Math.round(progress)}%</span
 							>
@@ -109,7 +112,7 @@
 					<p
 						class="rounded-md border border-destructive/30 bg-destructive/5 px-3 py-2 font-mono text-xs text-destructive"
 					>
-						{errorMessage}
+						{tError(errorMessage)}
 					</p>
 				{/if}
 			</section>
@@ -117,42 +120,34 @@
 			<Separator />
 
 			<section class="flex flex-col gap-3">
-				<h3 class="text-xs font-medium text-muted-foreground">Hardware</h3>
+				<h3 class="text-xs font-medium text-muted-foreground">{t('developer.hardware')}</h3>
 
 				<dl class="grid grid-cols-2 gap-x-6 gap-y-3 max-sm:gap-x-4 sm:grid-cols-4">
 					<div class="flex flex-col gap-0.5">
 						<dt class="flex items-center gap-1 text-xs text-muted-foreground">
-							WebGPU
-							<Tooltip.InfoHint
-								text="Runs the model on the GPU for a large speed boost when the browser and hardware support it."
-							/>
+							{t('developer.webgpu')}
+							<Tooltip.InfoHint text={t('developer.webgpuHint')} />
 						</dt>
 						<dd class="text-sm font-medium">{yesNo(capabilities?.webgpu)}</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
 						<dt class="flex items-center gap-1 text-xs text-muted-foreground">
-							SIMD
-							<Tooltip.InfoHint
-								text="WebAssembly SIMD speeds up the CPU fallback used when WebGPU is not available."
-							/>
+							{t('developer.simd')}
+							<Tooltip.InfoHint text={t('developer.simdHint')} />
 						</dt>
 						<dd class="text-sm font-medium">{yesNo(capabilities?.simd)}</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
 						<dt class="flex items-center gap-1 text-xs text-muted-foreground">
-							Threads
-							<Tooltip.InfoHint
-								text="Shared memory threads let the CPU fallback use several cores in parallel."
-							/>
+							{t('developer.threads')}
+							<Tooltip.InfoHint text={t('developer.threadsHint')} />
 						</dt>
 						<dd class="text-sm font-medium">{yesNo(capabilities?.threads)}</dd>
 					</div>
 					<div class="flex flex-col gap-0.5">
 						<dt class="flex items-center gap-1 text-xs text-muted-foreground">
-							Cores
-							<Tooltip.InfoHint
-								text="Logical cores reported by the browser, used to size the Wasm thread pool."
-							/>
+							{t('developer.cores')}
+							<Tooltip.InfoHint text={t('developer.coresHint')} />
 						</dt>
 						<dd class="text-sm font-medium tabular-nums">
 							{capabilities?.hardwareConcurrency ?? '?'}
@@ -164,15 +159,13 @@
 			<Separator />
 
 			<section class="flex flex-col gap-3">
-				<h3 class="text-xs font-medium text-muted-foreground">Model</h3>
+				<h3 class="text-xs font-medium text-muted-foreground">{t('developer.model')}</h3>
 
 				<div class="grid gap-3 sm:grid-cols-2">
 					<div class="flex flex-col gap-1.5">
 						<span class="flex items-center gap-1.5">
-							<Label for="dev-provider">Execution provider</Label>
-							<Tooltip.InfoHint
-								text="The backend that runs the model. webgpu is fastest, wasm is the compatible fallback on older devices."
-							/>
+							<Label for="dev-provider">{t('developer.executionProvider')}</Label>
+							<Tooltip.InfoHint text={t('developer.executionProviderHint')} />
 						</span>
 						<Select.Root
 							type="single"
@@ -195,10 +188,8 @@
 
 					<div class="flex flex-col gap-1.5">
 						<span class="flex items-center gap-1.5">
-							<Label for="dev-precision">Precision</Label>
-							<Tooltip.InfoHint
-								text="Weight precision. q8 is the smallest download, fp32 is the most accurate and the largest."
-							/>
+							<Label for="dev-precision">{t('developer.precision')}</Label>
+							<Tooltip.InfoHint text={t('developer.precisionHint')} />
 						</span>
 						<Select.Root
 							type="single"
@@ -236,22 +227,20 @@
 			<Separator />
 
 			<section class="flex flex-col gap-4">
-				<h3 class="text-xs font-medium text-muted-foreground">Processing</h3>
+				<h3 class="text-xs font-medium text-muted-foreground">{t('developer.processing')}</h3>
 
 				<div class="grid gap-3 sm:grid-cols-2">
 					<div class="flex flex-col gap-1.5">
 						<span class="flex items-center gap-1.5">
-							<Label for="dev-mask">Mask mode</Label>
-							<Tooltip.InfoHint
-								text="How model output becomes alpha. minmax matches the reference tool, sigmoid gives a softer, more contrasty mapping."
-							/>
+							<Label for="dev-mask">{t('developer.maskMode')}</Label>
+							<Tooltip.InfoHint text={t('developer.maskModeHint')} />
 						</span>
 						<Select.Root
 							type="single"
 							value={options.maskMode}
 							items={[
-								{ value: 'minmax', label: 'minmax (reference)' },
-								{ value: 'sigmoid', label: 'sigmoid' }
+								{ value: 'minmax', label: t('developer.maskModes.minmax') },
+								{ value: 'sigmoid', label: t('developer.maskModes.sigmoid') }
 							]}
 							onValueChange={(value) => {
 								options.maskMode = value as MaskMode;
@@ -262,28 +251,28 @@
 								<Select.Value />
 							</Select.Trigger>
 							<Select.Content>
-								<Select.Item value="minmax" label="minmax (reference)"
-									>minmax (reference)</Select.Item
+								<Select.Item value="minmax" label={t('developer.maskModes.minmax')}
+									>{t('developer.maskModes.minmax')}</Select.Item
 								>
-								<Select.Item value="sigmoid" label="sigmoid">sigmoid</Select.Item>
+								<Select.Item value="sigmoid" label={t('developer.maskModes.sigmoid')}
+									>{t('developer.maskModes.sigmoid')}</Select.Item
+								>
 							</Select.Content>
 						</Select.Root>
 					</div>
 
 					<div class="flex flex-col gap-1.5">
 						<span class="flex items-center gap-1.5">
-							<Label for="dev-format">Output format</Label>
-							<Tooltip.InfoHint
-								text="PNG keeps transparency, WebP is smaller, JPEG is the smallest but has no transparency."
-							/>
+							<Label for="dev-format">{t('developer.outputFormat')}</Label>
+							<Tooltip.InfoHint text={t('developer.outputFormatHint')} />
 						</span>
 						<Select.Root
 							type="single"
 							value={options.format}
 							items={[
-								{ value: 'image/png', label: 'PNG (lossless)' },
-								{ value: 'image/webp', label: 'WebP' },
-								{ value: 'image/jpeg', label: 'JPEG' }
+								{ value: 'image/png', label: t('developer.formats.png') },
+								{ value: 'image/webp', label: t('developer.formats.webp') },
+								{ value: 'image/jpeg', label: t('developer.formats.jpeg') }
 							]}
 							onValueChange={(value) => {
 								options.format = value as OutputFormat;
@@ -294,9 +283,15 @@
 								<Select.Value />
 							</Select.Trigger>
 							<Select.Content>
-								<Select.Item value="image/png" label="PNG (lossless)">PNG (lossless)</Select.Item>
-								<Select.Item value="image/webp" label="WebP">WebP</Select.Item>
-								<Select.Item value="image/jpeg" label="JPEG">JPEG</Select.Item>
+								<Select.Item value="image/png" label={t('developer.formats.png')}
+									>{t('developer.formats.png')}</Select.Item
+								>
+								<Select.Item value="image/webp" label={t('developer.formats.webp')}
+									>{t('developer.formats.webp')}</Select.Item
+								>
+								<Select.Item value="image/jpeg" label={t('developer.formats.jpeg')}
+									>{t('developer.formats.jpeg')}</Select.Item
+								>
 							</Select.Content>
 						</Select.Root>
 					</div>
@@ -305,10 +300,8 @@
 				<div class="flex flex-col gap-2">
 					<div class="flex items-center justify-between">
 						<span class="flex items-center gap-1.5">
-							<Label>Cutoff</Label>
-							<Tooltip.InfoHint
-								text="Makes everything below this alpha level fully transparent. Useful for trimming halos and stray pixels."
-							/>
+							<Label>{t('developer.cutoff')}</Label>
+							<Tooltip.InfoHint text={t('developer.cutoffHint')} />
 						</span>
 						<span class="text-xs text-muted-foreground tabular-nums">
 							{Math.round(options.threshold * 100)}%
@@ -327,10 +320,8 @@
 				<div class="flex flex-col gap-2">
 					<div class="flex items-center justify-between">
 						<span class="flex items-center gap-1.5">
-							<Label>Gamma</Label>
-							<Tooltip.InfoHint
-								text="Bends the alpha curve. Below 1 keeps more of the subject, above 1 tightens soft edges."
-							/>
+							<Label>{t('developer.gamma')}</Label>
+							<Tooltip.InfoHint text={t('developer.gammaHint')} />
 						</span>
 						<span class="text-xs text-muted-foreground tabular-nums">
 							{options.gamma.toFixed(1)}
@@ -351,10 +342,8 @@
 					class="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2"
 				>
 					<span class="flex items-center gap-1.5">
-						<Label for="dev-tiled">High-resolution tiling</Label>
-						<Tooltip.InfoHint
-							text="Runs the model on overlapping tiles for large images so edges stay sharp. Slower to run."
-						/>
+						<Label for="dev-tiled">{t('developer.tiling')}</Label>
+						<Tooltip.InfoHint text={t('developer.tilingHint')} />
 					</span>
 					<Switch id="dev-tiled" bind:checked={options.tiled} onCheckedChange={onCommit} />
 				</div>
@@ -363,8 +352,8 @@
 					class="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2"
 				>
 					<span class="flex items-center gap-1.5">
-						<Label for="dev-invert">Invert mask</Label>
-						<Tooltip.InfoHint text="Swaps the subject and the background." />
+						<Label for="dev-invert">{t('developer.invert')}</Label>
+						<Tooltip.InfoHint text={t('developer.invertHint')} />
 					</span>
 					<Switch id="dev-invert" bind:checked={options.invert} onCheckedChange={onCommit} />
 				</div>
@@ -372,8 +361,8 @@
 				<div class="flex flex-col gap-2">
 					<div class="flex items-center justify-between">
 						<span class="flex items-center gap-1.5">
-							<Label>Edge feather</Label>
-							<Tooltip.InfoHint text="Softens the mask edge by a few pixels. 0 turns it off." />
+							<Label>{t('developer.feather')}</Label>
+							<Tooltip.InfoHint text={t('developer.featherHint')} />
 						</span>
 						<span class="text-xs text-muted-foreground tabular-nums">{options.feather} px</span>
 					</div>
@@ -391,10 +380,8 @@
 					class="flex items-center justify-between gap-3 rounded-md border border-border px-3 py-2"
 				>
 					<span class="flex items-center gap-1.5">
-						<Label for="dev-edge">Edge-aware refine</Label>
-						<Tooltip.InfoHint
-							text="Feathers with a guided filter that follows image edges instead of blurring across them. Needs feather above 0."
-						/>
+						<Label for="dev-edge">{t('developer.refine')}</Label>
+						<Tooltip.InfoHint text={t('developer.refineHint')} />
 					</span>
 					<Switch
 						id="dev-edge"
@@ -407,10 +394,8 @@
 				<div class="flex flex-col gap-2">
 					<div class="flex items-center justify-between">
 						<span class="flex items-center gap-1.5">
-							<Label>Quality</Label>
-							<Tooltip.InfoHint
-								text="Encoder quality for the lossy formats WebP and JPEG. PNG is always lossless and ignores it."
-							/>
+							<Label>{t('developer.quality')}</Label>
+							<Tooltip.InfoHint text={t('developer.qualityHint')} />
 						</span>
 						<span class="text-xs text-muted-foreground tabular-nums">{options.quality}%</span>
 					</div>
@@ -428,33 +413,35 @@
 			<Separator />
 
 			<section class="flex flex-col gap-3">
-				<h3 class="text-xs font-medium text-muted-foreground">Last result</h3>
+				<h3 class="text-xs font-medium text-muted-foreground">{t('developer.lastResult')}</h3>
 
 				{#if meta}
 					<dl class="grid grid-cols-2 gap-x-6 gap-y-3 max-sm:gap-x-4 sm:grid-cols-3 lg:grid-cols-5">
 						<div class="flex flex-col gap-0.5">
-							<dt class="text-xs text-muted-foreground">Time</dt>
+							<dt class="text-xs text-muted-foreground">{t('developer.time')}</dt>
 							<dd class="font-mono text-sm font-medium tabular-nums">{meta.time}</dd>
 						</div>
 						<div class="flex flex-col gap-0.5">
-							<dt class="text-xs text-muted-foreground">Resolution</dt>
+							<dt class="text-xs text-muted-foreground">{t('developer.resolution')}</dt>
 							<dd class="font-mono text-sm font-medium tabular-nums">{meta.dimensions}</dd>
 						</div>
 						<div class="flex flex-col gap-0.5">
-							<dt class="text-xs text-muted-foreground">File size</dt>
+							<dt class="text-xs text-muted-foreground">{t('developer.fileSize')}</dt>
 							<dd class="font-mono text-sm font-medium tabular-nums">{meta.size}</dd>
 						</div>
 						<div class="flex flex-col gap-0.5">
-							<dt class="text-xs text-muted-foreground">Inference</dt>
-							<dd class="text-sm font-medium">{meta.cached ? 'reused' : 'full'}</dd>
+							<dt class="text-xs text-muted-foreground">{t('developer.inference')}</dt>
+							<dd class="text-sm font-medium">
+								{meta.cached ? t('developer.inferenceReused') : t('developer.inferenceFull')}
+							</dd>
 						</div>
 						<div class="flex flex-col gap-0.5">
-							<dt class="text-xs text-muted-foreground">Tiles</dt>
+							<dt class="text-xs text-muted-foreground">{t('developer.tiles')}</dt>
 							<dd class="font-mono text-sm font-medium tabular-nums">{meta.tiles}</dd>
 						</div>
 					</dl>
 				{:else}
-					<p class="text-sm text-muted-foreground">No result yet.</p>
+					<p class="text-sm text-muted-foreground">{t('developer.noResult')}</p>
 				{/if}
 			</section>
 		</Card.Content>

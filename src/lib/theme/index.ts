@@ -10,4 +10,3 @@ export {
 	toggleTheme,
 	type Theme
 } from './theme';
-export { default as ThemeToggle } from './ThemeToggle.svelte';

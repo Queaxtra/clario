@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "veya",
+		"yes": "Evet",
+		"no": "Hayır",
+		"idle": "beklemede"
+	},
+	"language": {
+		"label": "Dil",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "GitHub profili",
+		"x": "X profili",
+		"devMode": "Geliştirici modu"
+	},
+	"header": {
+		"title": "Görsel arka planlarını kaldır",
+		"subtitle": "Görselleri yükleyin ve temiz kesimleri indirin. Her şey tarayıcınızda çalışır, bu yüzden görselleriniz cihazınızdan hiç ayrılmaz."
+	},
+	"footer": {
+		"description": "Clario görsel arka planlarını tamamen tarayıcınızda kaldırır. Fotoğraflarınız cihazınızdan hiç ayrılmaz.",
+		"source": "Bu proje Github üzerinde açık kaynak"
+	},
+	"upload": {
+		"region": "Bir görsel yükle",
+		"title": "Görselleri sürükleyip bırakın",
+		"hint": "PNG, JPEG veya WebP. Birden fazlasını aynı anda ekleyin.",
+		"browse": "Dosya seç",
+		"urlPlaceholder": "Bir görsel URL'si yapıştır",
+		"urlLabel": "Görsel URL'si",
+		"load": "Yükle",
+		"example": "Bir örnek dene",
+		"paste": "Ctrl/Cmd+V ile de bir görsel yapıştırabilirsiniz.",
+		"errors": {
+			"invalidUrl": "Geçerli bir görsel URL'si girin.",
+			"unsupportedProtocol": "Yalnızca http ve https bağlantıları desteklenir.",
+			"loadFailed": "Bu görsel yüklenemedi."
+		}
+	},
+	"preview": {
+		"processing": "Arka plan kaldırılıyor",
+		"compareAlt": "Arka plan kaldırıldı",
+		"originalAlt": "Orijinal",
+		"frameLabel": "Görsel karşılaştırma",
+		"handleLabel": "Orijinali ve sonucu karşılaştır",
+		"zoomLabel": "Yakınlaştırma",
+		"zoomOut": "Uzaklaştır",
+		"zoomIn": "Yakınlaştır",
+		"resetZoom": "Yakınlaştırmayı sıfırla",
+		"copy": "Görseli kopyala",
+		"share": "Görseli paylaş",
+		"downloadAll": "Tümünü indir",
+		"newImage": "Yeni görsel",
+		"download": "İndir",
+		"dragHint": "Karşılaştırmak için tutamacı sürükleyin",
+		"counter": "Görsel {index} / {count}",
+		"errorTitle": "Bu görsel işlenemedi",
+		"notices": {
+			"copied": "Panoya kopyalandı",
+			"copyUnsupported": "Bu tarayıcıda kopyalama desteklenmiyor",
+			"shareUnsupported": "Bu tarayıcıda paylaşım desteklenmiyor"
+		}
+	},
+	"status": {
+		"preparing": "Model hazırlanıyor",
+		"errorTitle": "Model yüklenemedi",
+		"errorFallback": "Sayfayı yenileyip tekrar deneyin."
+	},
+	"batch": {
+		"label": "Seçili görseller",
+		"imageLabel": "Görsel {index}"
+	},
+	"options": {
+		"background": "Arka plan",
+		"kinds": {
+			"transparent": "Saydam",
+			"white": "Beyaz",
+			"black": "Siyah",
+			"custom": "Özel",
+			"gradient": "Gradyan",
+			"image": "Görsel"
+		},
+		"customColor": "Özel arka plan rengi",
+		"gradientStart": "Gradyan başlangıç rengi",
+		"gradientEnd": "Gradyan bitiş rengi",
+		"angle": "Açı",
+		"change": "Değiştir",
+		"removeImage": "Arka plan görselini kaldır",
+		"chooseImage": "Görsel seç",
+		"styling": "Stil",
+		"padding": "Kenar boşluğu",
+		"shadow": "Gölge",
+		"shadowHint": "Öznenin altında yumuşak gölge.",
+		"outline": "Dış çizgi",
+		"outlineColor": "Dış çizgi rengi",
+		"watermark": "Filigran",
+		"watermarkPlaceholder": "Bir etiket ekle"
+	},
+	"developer": {
+		"title": "Geliştirici",
+		"description": "Çalışma zamanı ayrıntıları, model kontrolleri ve son çalıştırma.",
+		"session": "Oturum",
+		"model": "Model",
+		"phase": "Aşama",
+		"processing": "İşleniyor",
+		"provider": "Sağlayıcı",
+		"modelFiles": "model dosyaları",
+		"hardware": "Donanım",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Tarayıcı ve donanım desteklediğinde modeli GPU üzerinde çalıştırarak büyük bir hız artışı sağlar.",
+		"simd": "SIMD",
+		"simdHint": "WebAssembly SIMD, WebGPU kullanılamadığında devreye giren CPU yedeğini hızlandırır.",
+		"threads": "İş parçacıkları",
+		"threadsHint": "Paylaşımlı bellek iş parçacıkları, CPU yedeğinin birkaç çekirdeği paralel kullanmasını sağlar.",
+		"cores": "Çekirdekler",
+		"coresHint": "Tarayıcının bildirdiği mantıksal çekirdek sayısı, Wasm iş parçacığı havuzunu boyutlandırmak için kullanılır.",
+		"executionProvider": "Yürütme sağlayıcısı",
+		"executionProviderHint": "Modeli çalıştıran arka uç. webgpu en hızlısıdır, wasm eski cihazlarda uyumlu yedektir.",
+		"precision": "Hassasiyet",
+		"precisionHint": "Ağırlık hassasiyeti. q8 en küçük indirmedir, fp32 en doğru ve en büyüktür.",
+		"maskMode": "Maske modu",
+		"maskModeHint": "Model çıktısının alfa değerine nasıl dönüşeceği. minmax referans aracıyla eşleşir, sigmoid daha yumuşak ve daha kontrastlı bir eşleme verir.",
+		"outputFormat": "Çıktı biçimi",
+		"outputFormatHint": "PNG saydamlığı korur, WebP daha küçüktür, JPEG en küçüktür ancak saydamlığı yoktur.",
+		"cutoff": "Eşik",
+		"cutoffHint": "Bu alfa seviyesinin altındaki her şeyi tamamen saydam yapar. Haleleri ve başıboş pikselleri temizlemek için kullanışlıdır.",
+		"gamma": "Gama",
+		"gammaHint": "Alfa eğrisini büker. 1'in altı öznenin daha fazlasını korur, 1'in üstü yumuşak kenarları sıkılaştırır.",
+		"tiling": "Yüksek çözünürlüklü döşeme",
+		"tilingHint": "Büyük görsellerde kenarların keskin kalması için modeli örtüşen döşemelerde çalıştırır. Çalışması daha yavaştır.",
+		"invert": "Maskeyi ters çevir",
+		"invertHint": "Özne ile arka planı yer değiştirir.",
+		"feather": "Kenar yumuşatma",
+		"featherHint": "Maske kenarını birkaç piksel yumuşatır. 0 kapatır.",
+		"refine": "Kenar duyarlı iyileştirme",
+		"refineHint": "Kenarları bulanıklaştırmak yerine takip eden yönlendirilmiş filtre ile yumuşatır. Yumuşatmanın 0'dan büyük olması gerekir.",
+		"quality": "Kalite",
+		"qualityHint": "Kayıplı biçimler WebP ve JPEG için kodlayıcı kalitesi. PNG her zaman kayıpsızdır ve bunu yok sayar.",
+		"lastResult": "Son sonuç",
+		"time": "Süre",
+		"resolution": "Çözünürlük",
+		"fileSize": "Dosya boyutu",
+		"inference": "Çıkarım",
+		"inferenceReused": "yeniden kullanıldı",
+		"inferenceFull": "tam",
+		"tiles": "Döşemeler",
+		"noResult": "Henüz sonuç yok.",
+		"status": {
+			"idle": "beklemede",
+			"loading": "yükleniyor",
+			"ready": "hazır",
+			"error": "hata"
+		},
+		"phases": {
+			"download": "indirme",
+			"compile": "derleme",
+			"warmup": "ısınma",
+			"infer": "çıkarım",
+			"postprocess": "son işleme"
+		},
+		"maskModes": {
+			"minmax": "minmax (referans)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (kayıpsız)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Tarayıcınızda çalışan ücretsiz AI arka plan kaldırıcı. Görsel arka planlarını kaldırın ve saydam PNG'leri saniyeler içinde indirin. Kayıt yok, yükleme gerekmez.",
+		"metaKeywords": "arka plan kaldırıcı, arka plan kaldır, AI arka plan kaldırıcı, saydam PNG, görsel kesme, bg kaldır, ücretsiz arka plan silici, toplu arka plan kaldırma, yüklemesiz arka plan kaldırıcı",
+		"errors": {
+			"chooseImage": "Bir görsel dosyası seçin (PNG, JPEG veya WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "Model yüklü değil. Sayfayı yenileyip tekrar deneyin.",
+		"modelSessionNotFound": "Model başlatılamadı. Sayfayı yenileyip tekrar deneyin.",
+		"canvasContext": "Bu tarayıcı, görseli işlemek için gereken çizim yüzeyini oluşturamadı.",
+		"backgroundImage": "Arka plan görseli yüklenemedi.",
+		"imageUnavailable": "Görsel yüklenemedi.",
+		"notAnImage": "Bu bağlantı bir görsele işaret etmiyor.",
+		"encodeFailed": "Görsel kodlanamadı.",
+		"unsupported": "Bu işlem bu tarayıcıda desteklenmiyor."
+	}
+}

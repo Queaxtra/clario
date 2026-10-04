@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "oder",
+		"yes": "Ja",
+		"no": "Nein",
+		"idle": "inaktiv"
+	},
+	"language": {
+		"label": "Sprache",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "GitHub-Profil",
+		"x": "X-Profil",
+		"devMode": "Entwicklermodus"
+	},
+	"header": {
+		"title": "Bildhintergründe entfernen",
+		"subtitle": "Lade Bilder hoch und erhalte saubere Freisteller. Alles läuft in deinem Browser, deine Bilder verlassen dein Gerät nie."
+	},
+	"footer": {
+		"description": "Clario entfernt Bildhintergründe vollständig in deinem Browser. Deine Fotos verlassen dein Gerät nie.",
+		"source": "Dieses Projekt ist Open Source auf GitHub"
+	},
+	"upload": {
+		"region": "Ein Bild hochladen",
+		"title": "Bilder per Drag & Drop ablegen",
+		"hint": "PNG, JPEG oder WebP. Mehrere auf einmal möglich.",
+		"browse": "Dateien auswählen",
+		"urlPlaceholder": "Bild-URL einfügen",
+		"urlLabel": "Bild-URL",
+		"load": "Laden",
+		"example": "Beispiel ausprobieren",
+		"paste": "Du kannst ein Bild auch mit Strg/Cmd+V einfügen.",
+		"errors": {
+			"invalidUrl": "Gib eine gültige Bild-URL ein.",
+			"unsupportedProtocol": "Nur http- und https-Links werden unterstützt.",
+			"loadFailed": "Dieses Bild konnte nicht geladen werden."
+		}
+	},
+	"preview": {
+		"processing": "Hintergrund wird entfernt",
+		"compareAlt": "Hintergrund entfernt",
+		"originalAlt": "Original",
+		"frameLabel": "Bildvergleich",
+		"handleLabel": "Original und Ergebnis vergleichen",
+		"zoomLabel": "Zoom",
+		"zoomOut": "Verkleinern",
+		"zoomIn": "Vergrößern",
+		"resetZoom": "Zoom zurücksetzen",
+		"copy": "Bild kopieren",
+		"share": "Bild teilen",
+		"downloadAll": "Alle herunterladen",
+		"newImage": "Neues Bild",
+		"download": "Herunterladen",
+		"dragHint": "Ziehe den Griff zum Vergleichen",
+		"counter": "Bild {index} von {count}",
+		"errorTitle": "Dieses Bild konnte nicht verarbeitet werden",
+		"notices": {
+			"copied": "In die Zwischenablage kopiert",
+			"copyUnsupported": "Kopieren wird in diesem Browser nicht unterstützt",
+			"shareUnsupported": "Teilen wird in diesem Browser nicht unterstützt"
+		}
+	},
+	"status": {
+		"preparing": "Modell wird vorbereitet",
+		"errorTitle": "Das Modell konnte nicht geladen werden",
+		"errorFallback": "Lade die Seite neu und versuche es erneut."
+	},
+	"batch": {
+		"label": "Ausgewählte Bilder",
+		"imageLabel": "Bild {index}"
+	},
+	"options": {
+		"background": "Hintergrund",
+		"kinds": {
+			"transparent": "Transparent",
+			"white": "Weiß",
+			"black": "Schwarz",
+			"custom": "Benutzerdefiniert",
+			"gradient": "Verlauf",
+			"image": "Bild"
+		},
+		"customColor": "Benutzerdefinierte Hintergrundfarbe",
+		"gradientStart": "Startfarbe des Verlaufs",
+		"gradientEnd": "Endfarbe des Verlaufs",
+		"angle": "Winkel",
+		"change": "Ändern",
+		"removeImage": "Hintergrundbild entfernen",
+		"chooseImage": "Bild wählen",
+		"styling": "Stil",
+		"padding": "Rand",
+		"shadow": "Schlagschatten",
+		"shadowHint": "Weicher Schatten unter dem Motiv.",
+		"outline": "Kontur",
+		"outlineColor": "Konturfarbe",
+		"watermark": "Wasserzeichen",
+		"watermarkPlaceholder": "Beschriftung hinzufügen"
+	},
+	"developer": {
+		"title": "Entwickler",
+		"description": "Laufzeitdetails, Modelloptionen und der letzte Durchlauf.",
+		"session": "Sitzung",
+		"model": "Modell",
+		"phase": "Phase",
+		"processing": "Verarbeitung",
+		"provider": "Anbieter",
+		"modelFiles": "Modelldateien",
+		"hardware": "Hardware",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Führt das Modell auf der GPU aus und bringt einen großen Geschwindigkeitsschub, wenn Browser und Hardware dies unterstützen.",
+		"simd": "SIMD",
+		"simdHint": "WebAssembly-SIMD beschleunigt den CPU-Fallback, der genutzt wird, wenn WebGPU nicht verfügbar ist.",
+		"threads": "Threads",
+		"threadsHint": "Gemeinsam genutzter Speicher ermöglicht dem CPU-Fallback, mehrere Kerne parallel zu nutzen.",
+		"cores": "Kerne",
+		"coresHint": "Vom Browser gemeldete logische Kerne, die den Wasm-Thread-Pool dimensionieren.",
+		"executionProvider": "Ausführungsanbieter",
+		"executionProviderHint": "Das Backend, das das Modell ausführt. webgpu ist am schnellsten, wasm ist der kompatible Fallback für ältere Geräte.",
+		"precision": "Präzision",
+		"precisionHint": "Gewichtspräzision. q8 ist der kleinste Download, fp32 ist am genauesten und am größten.",
+		"maskMode": "Maskenmodus",
+		"maskModeHint": "Wie die Modellausgabe zu Alpha wird. minmax entspricht dem Referenzwerkzeug, sigmoid ergibt eine weichere, kontrastreichere Zuordnung.",
+		"outputFormat": "Ausgabeformat",
+		"outputFormatHint": "PNG behält Transparenz, WebP ist kleiner, JPEG ist am kleinsten, hat aber keine Transparenz.",
+		"cutoff": "Schwelle",
+		"cutoffHint": "Macht alles unterhalb dieses Alpha-Werts vollständig transparent. Nützlich zum Entfernen von Rändern und einzelnen Pixeln.",
+		"gamma": "Gamma",
+		"gammaHint": "Verbiegt die Alpha-Kurve. Unter 1 behält mehr vom Motiv, über 1 strafft weiche Kanten.",
+		"tiling": "Hochauflösende Kachelung",
+		"tilingHint": "Führt das Modell bei großen Bildern auf überlappenden Kacheln aus, damit die Kanten scharf bleiben. Langsamer.",
+		"invert": "Maske invertieren",
+		"invertHint": "Tauscht Motiv und Hintergrund.",
+		"feather": "Kantenweichzeichnung",
+		"featherHint": "Zeichnet die Maskenkante um einige Pixel weich. 0 schaltet es aus.",
+		"refine": "Kantenbewusste Verfeinerung",
+		"refineHint": "Zeichnet mit einem geführten Filter weich, der Bildkanten folgt, statt über sie zu verwischen. Erfordert Weichzeichnung über 0.",
+		"quality": "Qualität",
+		"qualityHint": "Encoder-Qualität für die verlustbehafteten Formate WebP und JPEG. PNG ist immer verlustfrei und ignoriert sie.",
+		"lastResult": "Letztes Ergebnis",
+		"time": "Zeit",
+		"resolution": "Auflösung",
+		"fileSize": "Dateigröße",
+		"inference": "Inferenz",
+		"inferenceReused": "wiederverwendet",
+		"inferenceFull": "vollständig",
+		"tiles": "Kacheln",
+		"noResult": "Noch kein Ergebnis.",
+		"status": {
+			"idle": "inaktiv",
+			"loading": "lädt",
+			"ready": "bereit",
+			"error": "Fehler"
+		},
+		"phases": {
+			"download": "Download",
+			"compile": "Kompilierung",
+			"warmup": "Aufwärmen",
+			"infer": "Inferenz",
+			"postprocess": "Nachbearbeitung"
+		},
+		"maskModes": {
+			"minmax": "minmax (Referenz)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (verlustfrei)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Kostenloser KI-Hintergrundentferner, der in deinem Browser läuft. Entferne Bildhintergründe und lade transparente PNGs in Sekunden herunter. Keine Anmeldung, kein Upload nötig.",
+		"metaKeywords": "Hintergrund entfernen, Hintergrundentferner, KI-Hintergrundentferner, transparentes PNG, Bild freistellen, bg entfernen, kostenloser Hintergrundradierer, Massen-Hintergrundentfernung, Hintergrundentferner ohne Upload",
+		"errors": {
+			"chooseImage": "Wähle eine Bilddatei (PNG, JPEG oder WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "Das Modell ist nicht geladen. Lade die Seite neu und versuche es erneut.",
+		"modelSessionNotFound": "Das Modell konnte nicht initialisiert werden. Lade die Seite neu und versuche es erneut.",
+		"canvasContext": "Dieser Browser konnte die zum Verarbeiten des Bildes nötige Zeichenfläche nicht erstellen.",
+		"backgroundImage": "Das Hintergrundbild konnte nicht geladen werden.",
+		"imageUnavailable": "Das Bild konnte nicht geladen werden.",
+		"notAnImage": "Dieser Link verweist nicht auf ein Bild.",
+		"encodeFailed": "Das Bild konnte nicht kodiert werden.",
+		"unsupported": "Diese Aktion wird in diesem Browser nicht unterstützt."
+	}
+}

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import MoonIcon from '../components/icons/moon-linear.svelte';
-	import SunIcon from '../components/icons/sun-linear.svelte';
-	import { Button } from '../components/ui/button';
-	import { resolveTheme, toggleTheme, type Theme } from './theme';
+	import MoonIcon from '../lib/components/icons/moon-linear.svelte';
+	import SunIcon from '../lib/components/icons/sun-linear.svelte';
+	import { Button } from '../lib/components/ui/button';
+	import { resolveTheme, toggleTheme, type Theme } from '../lib/theme/theme';
 
 	let theme = $state<Theme>('light');
 

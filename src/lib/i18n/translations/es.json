@@ -1,0 +1,196 @@
+{
+	"common": {
+		"or": "o",
+		"yes": "Sí",
+		"no": "No",
+		"idle": "inactivo"
+	},
+	"language": {
+		"label": "Idioma",
+		"en": "English",
+		"tr": "Türkçe",
+		"de": "Deutsch",
+		"fr": "Français",
+		"es": "Español",
+		"it": "Italiano",
+		"pt": "Português",
+		"ru": "Русский"
+	},
+	"navbar": {
+		"github": "Perfil de GitHub",
+		"x": "Perfil de X",
+		"devMode": "Modo desarrollador"
+	},
+	"header": {
+		"title": "Eliminar fondos de imágenes",
+		"subtitle": "Sube imágenes y descarga recortes limpios. Todo se ejecuta en tu navegador, así que tus imágenes nunca salen de tu dispositivo."
+	},
+	"footer": {
+		"description": "Clario elimina por completo los fondos de las imágenes en tu navegador. Tus fotos nunca salen de tu dispositivo.",
+		"source": "Este proyecto es de código abierto en GitHub"
+	},
+	"upload": {
+		"region": "Sube una imagen",
+		"title": "Arrastra y suelta imágenes",
+		"hint": "PNG, JPEG o WebP. Añade varias a la vez.",
+		"browse": "Elegir archivos",
+		"urlPlaceholder": "Pega la URL de una imagen",
+		"urlLabel": "URL de la imagen",
+		"load": "Cargar",
+		"example": "Probar un ejemplo",
+		"paste": "También puedes pegar una imagen con Ctrl/Cmd+V.",
+		"errors": {
+			"invalidUrl": "Introduce una URL de imagen válida.",
+			"unsupportedProtocol": "Solo se admiten enlaces http y https.",
+			"loadFailed": "No se pudo cargar esa imagen."
+		}
+	},
+	"preview": {
+		"processing": "Eliminando el fondo",
+		"compareAlt": "Fondo eliminado",
+		"originalAlt": "Original",
+		"frameLabel": "Comparación de imágenes",
+		"handleLabel": "Comparar el original y el resultado",
+		"zoomLabel": "Zoom",
+		"zoomOut": "Alejar",
+		"zoomIn": "Acercar",
+		"resetZoom": "Restablecer zoom",
+		"copy": "Copiar imagen",
+		"share": "Compartir imagen",
+		"downloadAll": "Descargar todo",
+		"newImage": "Nueva imagen",
+		"download": "Descargar",
+		"dragHint": "Arrastra el control para comparar",
+		"counter": "Imagen {index} de {count}",
+		"errorTitle": "No se pudo procesar esta imagen",
+		"notices": {
+			"copied": "Copiado al portapapeles",
+			"copyUnsupported": "Este navegador no admite copiar",
+			"shareUnsupported": "Este navegador no admite compartir"
+		}
+	},
+	"status": {
+		"preparing": "Preparando el modelo",
+		"errorTitle": "No se pudo cargar el modelo",
+		"errorFallback": "Recarga la página e inténtalo de nuevo."
+	},
+	"batch": {
+		"label": "Imágenes seleccionadas",
+		"imageLabel": "Imagen {index}"
+	},
+	"options": {
+		"background": "Fondo",
+		"kinds": {
+			"transparent": "Transparente",
+			"white": "Blanco",
+			"black": "Negro",
+			"custom": "Personalizado",
+			"gradient": "Degradado",
+			"image": "Imagen"
+		},
+		"customColor": "Color de fondo personalizado",
+		"gradientStart": "Color inicial del degradado",
+		"gradientEnd": "Color final del degradado",
+		"angle": "Ángulo",
+		"change": "Cambiar",
+		"removeImage": "Quitar imagen de fondo",
+		"chooseImage": "Elegir imagen",
+		"styling": "Estilo",
+		"padding": "Margen",
+		"shadow": "Sombra",
+		"shadowHint": "Sombra suave bajo el sujeto.",
+		"outline": "Contorno",
+		"outlineColor": "Color del contorno",
+		"watermark": "Marca de agua",
+		"watermarkPlaceholder": "Añadir una etiqueta"
+	},
+	"developer": {
+		"title": "Desarrollador",
+		"description": "Detalles de ejecución, controles del modelo y última ejecución.",
+		"session": "Sesión",
+		"model": "Modelo",
+		"phase": "Fase",
+		"processing": "Procesando",
+		"provider": "Proveedor",
+		"modelFiles": "archivos del modelo",
+		"hardware": "Hardware",
+		"webgpu": "WebGPU",
+		"webgpuHint": "Ejecuta el modelo en la GPU para un gran aumento de velocidad cuando el navegador y el hardware lo admiten.",
+		"simd": "SIMD",
+		"simdHint": "El SIMD de WebAssembly acelera el respaldo de CPU que se usa cuando WebGPU no está disponible.",
+		"threads": "Hilos",
+		"threadsHint": "La memoria compartida permite al respaldo de CPU usar varios núcleos en paralelo.",
+		"cores": "Núcleos",
+		"coresHint": "Núcleos lógicos indicados por el navegador, usados para dimensionar el grupo de hilos de Wasm.",
+		"executionProvider": "Proveedor de ejecución",
+		"executionProviderHint": "El backend que ejecuta el modelo. webgpu es el más rápido, wasm es el respaldo compatible en dispositivos antiguos.",
+		"precision": "Precisión",
+		"precisionHint": "Precisión de los pesos. q8 es la descarga más pequeña, fp32 es la más precisa y la más grande.",
+		"maskMode": "Modo de máscara",
+		"maskModeHint": "Cómo la salida del modelo se convierte en alfa. minmax coincide con la herramienta de referencia, sigmoid ofrece una asignación más suave y con más contraste.",
+		"outputFormat": "Formato de salida",
+		"outputFormatHint": "PNG mantiene la transparencia, WebP es más pequeño, JPEG es el más pequeño pero no tiene transparencia.",
+		"cutoff": "Umbral",
+		"cutoffHint": "Hace totalmente transparente todo lo que esté por debajo de este nivel de alfa. Útil para eliminar halos y píxeles sueltos.",
+		"gamma": "Gamma",
+		"gammaHint": "Curva el alfa. Por debajo de 1 conserva más del sujeto, por encima de 1 ajusta los bordes suaves.",
+		"tiling": "Mosaico de alta resolución",
+		"tilingHint": "Ejecuta el modelo en mosaicos superpuestos para imágenes grandes, manteniendo los bordes nítidos. Más lento.",
+		"invert": "Invertir máscara",
+		"invertHint": "Intercambia el sujeto y el fondo.",
+		"feather": "Suavizado de bordes",
+		"featherHint": "Suaviza el borde de la máscara unos píxeles. 0 lo desactiva.",
+		"refine": "Refinado sensible a los bordes",
+		"refineHint": "Suaviza con un filtro guiado que sigue los bordes de la imagen en lugar de difuminarlos. Requiere suavizado mayor que 0.",
+		"quality": "Calidad",
+		"qualityHint": "Calidad del codificador para los formatos con pérdida WebP y JPEG. PNG siempre es sin pérdida y lo ignora.",
+		"lastResult": "Último resultado",
+		"time": "Tiempo",
+		"resolution": "Resolución",
+		"fileSize": "Tamaño del archivo",
+		"inference": "Inferencia",
+		"inferenceReused": "reutilizada",
+		"inferenceFull": "completa",
+		"tiles": "Mosaicos",
+		"noResult": "Aún no hay resultados.",
+		"status": {
+			"idle": "inactivo",
+			"loading": "cargando",
+			"ready": "listo",
+			"error": "error"
+		},
+		"phases": {
+			"download": "descarga",
+			"compile": "compilación",
+			"warmup": "precalentamiento",
+			"infer": "inferencia",
+			"postprocess": "posprocesado"
+		},
+		"maskModes": {
+			"minmax": "minmax (referencia)",
+			"sigmoid": "sigmoid"
+		},
+		"formats": {
+			"png": "PNG (sin pérdida)",
+			"webp": "WebP",
+			"jpeg": "JPEG"
+		}
+	},
+	"page": {
+		"metaDescription": "Eliminador de fondos con IA gratuito que funciona en tu navegador. Elimina fondos de imágenes y descarga PNG transparentes en segundos. Sin registro ni subida.",
+		"metaKeywords": "eliminar fondo, eliminador de fondo, IA para fondos, PNG transparente, recorte de imagen, quitar bg, borrador de fondo gratis, eliminación de fondos por lotes, fondo sin subida",
+		"errors": {
+			"chooseImage": "Elige un archivo de imagen (PNG, JPEG o WebP)."
+		}
+	},
+	"errors": {
+		"modelNotLoaded": "El modelo no está cargado. Recarga la página e inténtalo de nuevo.",
+		"modelSessionNotFound": "No se pudo inicializar el modelo. Recarga la página e inténtalo de nuevo.",
+		"canvasContext": "Este navegador no pudo crear la superficie de dibujo necesaria para procesar la imagen.",
+		"backgroundImage": "No se pudo cargar la imagen de fondo.",
+		"imageUnavailable": "No se pudo cargar la imagen.",
+		"notAnImage": "Ese enlace no apunta a una imagen.",
+		"encodeFailed": "No se pudo codificar la imagen.",
+		"unsupported": "Esta acción no es compatible con este navegador."
+	}
+}

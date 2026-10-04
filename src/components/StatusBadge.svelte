@@ -3,6 +3,7 @@
 	import * as Alert from '../lib/components/ui/alert';
 	import { Progress } from '../lib/components/ui/progress';
 	import { Spinner } from '../lib/components/ui/spinner';
+	import { t, tError } from '../lib/i18n';
 
 	type Status = 'idle' | 'loading' | 'ready' | 'running' | 'error';
 
@@ -21,7 +22,7 @@
 		<Spinner class="mt-0.5 size-4 text-muted-foreground" />
 		<div class="flex min-w-0 flex-1 flex-col gap-2">
 			<div class="flex items-baseline justify-between gap-3">
-				<span class="text-sm font-medium text-foreground">Preparing model</span>
+				<span class="text-sm font-medium text-foreground">{t('status.preparing')}</span>
 				<span class="text-xs text-muted-foreground tabular-nums">{Math.round(progress)}%</span>
 			</div>
 			<Progress value={progress} class="h-1" />
@@ -33,7 +34,7 @@
 {:else if status === 'error'}
 	<Alert.Root variant="destructive">
 		<DangerTriangleIcon />
-		<Alert.Title>Could not load the model</Alert.Title>
-		<Alert.Description>{message || 'Reload the page and try again.'}</Alert.Description>
+		<Alert.Title>{t('status.errorTitle')}</Alert.Title>
+		<Alert.Description>{message ? tError(message) : t('status.errorFallback')}</Alert.Description>
 	</Alert.Root>
 {/if}

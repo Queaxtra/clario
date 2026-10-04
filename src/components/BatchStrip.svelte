@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DangerTriangleIcon from '../lib/components/icons/danger-triangle-linear.svelte';
 	import { Spinner } from '../lib/components/ui/spinner';
+	import { t } from '../lib/i18n';
 	import { cn } from '../lib/utils.js';
 
 	interface Item {
@@ -17,13 +18,13 @@
 	}: { items: Item[]; activeIndex: number; onSelect: (index: number) => void } = $props();
 </script>
 
-<div class="flex gap-2 overflow-x-auto pb-1" aria-label="Selected images">
+<div class="flex gap-2 overflow-x-auto pb-1" aria-label={t('batch.label')}>
 	{#each items as item, i (item.id)}
 		<button
 			type="button"
 			onclick={() => onSelect(i)}
 			aria-current={i === activeIndex}
-			aria-label={`Image ${i + 1}`}
+			aria-label={t('batch.imageLabel', { index: i + 1 })}
 			class={cn(
 				'relative size-16 shrink-0 overflow-hidden rounded-md border bg-muted/30 transition-colors',
 				i === activeIndex ? 'border-foreground/50' : 'border-border hover:border-foreground/25'

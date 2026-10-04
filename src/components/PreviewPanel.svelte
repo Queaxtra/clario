@@ -13,6 +13,7 @@
 	import { Button } from '../lib/components/ui/button';
 	import * as Card from '../lib/components/ui/card';
 	import { Spinner } from '../lib/components/ui/spinner';
+	import { t } from '../lib/i18n';
 	import { cn } from '../lib/utils.js';
 
 	let {
@@ -74,8 +75,8 @@
 		resetView();
 	});
 
-	function flash(message: string) {
-		notice = message;
+	function flash(key: string) {
+		notice = key;
 		clearTimeout(noticeTimer);
 		noticeTimer = setTimeout(() => (notice = ''), 2400);
 	}
@@ -164,9 +165,9 @@
 			await navigator.clipboard.write([
 				new ClipboardItem({ 'image/png': await toPng(resultBlob) })
 			]);
-			flash('Copied to clipboard');
+			flash('preview.notices.copied');
 		} catch {
-			flash('Copy is not supported in this browser');
+			flash('preview.notices.copyUnsupported');
 		}
 	}
 
@@ -178,7 +179,7 @@
 				await navigator.share({ files: [file] });
 				return;
 			}
-			flash('Sharing is not supported in this browser');
+			flash('preview.notices.shareUnsupported');
 		} catch {
 			// the user cancelled the share sheet
 		}
@@ -208,7 +209,7 @@
 		{#if error}
 			<Alert.Root variant="destructive">
 				<DangerTriangleIcon />
-				<Alert.Title>Could not process this image</Alert.Title>
+				<Alert.Title>{t('preview.errorTitle')}</Alert.Title>
 				<Alert.Description>{error}</Alert.Description>
 			</Alert.Root>
 		{/if}
@@ -217,7 +218,7 @@
 			<div
 				bind:this={frame}
 				role="group"
-				aria-label="Image comparison"
+				aria-label={t('preview.frameLabel')}
 				class={cn(
 					'checkerboard relative overflow-hidden rounded-lg border border-border',
 					resultUrl && (zoom > 1 || mode === 'pan' ? 'cursor-grab' : 'cursor-ew-resize'),
@@ -236,13 +237,13 @@
 					{#if resultUrl}
 						<img
 							src={resultUrl}
-							alt="Background removed"
+							alt={t('preview.compareAlt')}
 							class="block max-h-[60vh] w-auto max-w-full"
 							draggable="false"
 						/>
 						<img
 							src={originalUrl}
-							alt="Original"
+							alt={t('preview.originalAlt')}
 							class="absolute inset-0 h-full w-full object-contain"
 							style:clip-path={`inset(0 0 0 ${position}%)`}
 							draggable="false"
@@ -254,7 +255,7 @@
 						<div
 							role="slider"
 							tabindex="0"
-							aria-label="Compare original and result"
+							aria-label={t('preview.handleLabel')}
 							aria-valuemin="0"
 							aria-valuemax="100"
 							aria-valuenow={Math.round(position)}
@@ -270,7 +271,7 @@
 					{:else}
 						<img
 							src={originalUrl}
-							alt="Original"
+							alt={t('preview.originalAlt')}
 							class="block max-h-[60vh] w-auto max-w-full"
 							draggable="false"
 						/>
@@ -280,7 +281,7 @@
 				{#if resultUrl}
 					<div
 						role="group"
-						aria-label="Zoom"
+						aria-label={t('preview.zoomLabel')}
 						class="absolute top-2 right-2 flex items-center gap-0.5 rounded-md border border-border bg-background/90 px-0.5 py-0.5 backdrop-blur"
 						onpointerdown={(event) => event.stopPropagation()}
 					>
@@ -288,7 +289,7 @@
 							variant="ghost"
 							size="icon-sm"
 							class="max-sm:size-9"
-							aria-label="Zoom out"
+							aria-label={t('preview.zoomOut')}
 							disabled={zoom <= MIN_ZOOM}
 							onclick={() => zoomBy(-ZOOM_STEP)}
 						>
@@ -301,7 +302,7 @@
 							variant="ghost"
 							size="icon-sm"
 							class="max-sm:size-9"
-							aria-label="Zoom in"
+							aria-label={t('preview.zoomIn')}
 							disabled={zoom >= MAX_ZOOM}
 							onclick={() => zoomBy(ZOOM_STEP)}
 						>
@@ -312,7 +313,7 @@
 								variant="ghost"
 								size="icon-sm"
 								class="max-sm:size-9"
-								aria-label="Reset zoom"
+								aria-label={t('preview.resetZoom')}
 								onclick={resetView}
 							>
 								<RefreshIcon />
@@ -326,7 +327,7 @@
 						class="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-background/70 backdrop-blur-sm"
 					>
 						<Spinner class="size-5" />
-						<p class="text-sm font-medium text-foreground">Removing background</p>
+						<p class="text-sm font-medium text-foreground">{t('preview.processing')}</p>
 					</div>
 				{/if}
 			</div>
@@ -337,11 +338,11 @@
 		<div class="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 			<p class="text-xs text-muted-foreground" aria-live="polite">
 				{#if notice}
-					{notice}
+					{t(notice)}
 				{:else if count > 1}
-					Image {index + 1} of {count}
+					{t('preview.counter', { index: index + 1, count })}
 				{:else}
-					Drag the handle to compare
+					{t('preview.dragHint')}
 				{/if}
 			</p>
 
@@ -353,7 +354,7 @@
 						variant="outline"
 						size="icon-sm"
 						class="max-sm:order-1 max-sm:size-10 max-sm:justify-self-start"
-						aria-label="Copy image"
+						aria-label={t('preview.copy')}
 						onclick={copyResult}
 					>
 						<CopyIcon />
@@ -363,7 +364,7 @@
 							variant="outline"
 							size="icon-sm"
 							class="max-sm:order-2 max-sm:size-10 max-sm:justify-self-start"
-							aria-label="Share image"
+							aria-label={t('preview.share')}
 							onclick={shareResult}
 						>
 							<ShareIcon />
@@ -378,7 +379,7 @@
 						onclick={onDownloadAll}
 						disabled={processing}
 					>
-						Download all
+						{t('preview.downloadAll')}
 					</Button>
 				{/if}
 				<Button
@@ -388,7 +389,8 @@
 					onclick={onReset}
 					disabled={processing}
 				>
-					<RestartIcon data-icon="inline-start" /> New image
+					<RestartIcon data-icon="inline-start" />
+					{t('preview.newImage')}
 				</Button>
 				<Button
 					size="sm"
@@ -396,7 +398,8 @@
 					onclick={onDownload}
 					disabled={!resultUrl || processing}
 				>
-					<DownloadIcon data-icon="inline-start" /> Download
+					<DownloadIcon data-icon="inline-start" />
+					{t('preview.download')}
 				</Button>
 			</div>
 		</div>
